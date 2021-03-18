@@ -1,0 +1,8 @@
+[Added Associations]
+application/xml=code-oss.desktop;pluma.desktop;
+application/x-shellscript=pluma.desktop;
+image/png=ristretto.desktop;viewnior.desktop;
+text/x-java=code-oss.desktop;pluma.desktop;
+text/x-c++src=pluma.desktop;
+text/x-makefile=pluma.desktop;
+text/x-csrc=pluma.desktop;
