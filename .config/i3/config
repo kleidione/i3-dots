@@ -1,0 +1,275 @@
+
+##############################################################################################################################################################                                                                                                                                         
+
+# Mod4 = SUPER
+# Mod1 = ALT
+
+# Descomente para selecionar a tecla ALT
+# set $mod Mod1
+
+# Descomente para selecionar a tecla SUPER
+  set $mod Mod4
+
+##############################################################################################################################################################                                                                                                                                                       
+
+  set $up l
+  set $down k
+  set $left j
+  set $right semicolon
+
+##############################################################################################################################################################                                                                                                                                                         
+
+  set $firstMonitor  HDMI3
+  set $secondMonitor DP1
+  exec --no-startup-id xrandr --output HDMI3 --right-of DP1 --mode 2560x1080
+  
+  workspace 1 output $firstMonitor
+  workspace 2 output $firstMonitor
+  workspace 3 output $firstMonitor
+  workspace 4 output $firstMonitor
+  workspace 5 output $firstMonitor
+  workspace 6 output $secondMonitor
+  workspace 7 output $secondMonitor
+  workspace 8 output $secondMonitor
+  workspace 9 output $secondMonitor
+  workspace 10 output $secondMonitor
+
+  bindsym $mod+1 workspace 1
+  bindsym $mod+2 workspace 2
+  bindsym $mod+3 workspace 3
+  bindsym $mod+4 workspace 4
+  bindsym $mod+5 workspace 5
+  bindsym $mod+6 workspace 6
+  bindsym $mod+7 workspace 7
+  bindsym $mod+8 workspace 8
+  bindsym $mod+9 workspace 9
+  bindsym $mod+0 workspace 10
+
+  bindsym $mod+Shift+1 move container to workspace 1; workspace 1
+  bindsym $mod+Shift+2 move container to workspace 2; workspace 2
+  bindsym $mod+Shift+3 move container to workspace 3; workspace 3
+  bindsym $mod+Shift+4 move container to workspace 4; workspace 4
+  bindsym $mod+Shift+5 move container to workspace 5; workspace 5
+  bindsym $mod+Shift+6 move container to workspace 6; workspace 6
+  bindsym $mod+Shift+7 move container to workspace 7; workspace 7
+  bindsym $mod+Shift+8 move container to workspace 8; workspace 8
+  bindsym $mod+Shift+9 move container to workspace 9; workspace 9
+  bindsym $mod+Shift+0 move container to workspace 10; workspace 10
+
+##############################################################################################################################################################                                                                                                                                                                     
+
+  bindsym $mod+d exec dmenu_run -i -nb '#1a1a1a' -nf '#64549c' -sb '#64549c' -sf '#FFFFFF' -fn 'Noto Mono Regular:Bold:pixelsize=14'
+
+##############################################################################################################################################################                                                                                                                                             
+
+  bindsym $mod+Shift+r restart
+
+  bindsym $mod+Shift+c reload
+
+##############################################################################################################################################################                                                                                                                                                   
+
+  bindsym $mod+Shift+q kill
+  bindsym $mod+q kill
+
+##############################################################################################################################################################                                                                                                                                                              
+
+  floating_modifier $mod
+  bindsym $mod+Shift+space floating toggle
+
+  bindsym $mod+$left focus left
+  bindsym $mod+$down focus down
+  bindsym $mod+$up focus up
+  bindsym $mod+$right focus right
+
+  bindsym $mod+Left focus left
+  bindsym $mod+Down focus down
+  bindsym $mod+Up focus up
+  bindsym $mod+Right focus right
+
+  bindsym $mod+Shift+$left move left
+  bindsym $mod+Shift+$down move down
+  bindsym $mod+Shift+$up move up
+  bindsym $mod+Shift+$right move right
+
+  bindsym $mod+Shift+Left move left
+  bindsym $mod+Shift+Down move down
+  bindsym $mod+Shift+Up move up
+  bindsym $mod+Shift+Right move right
+
+##############################################################################################################################################################                                                                                                                                                  
+
+  bindsym Mod1+Tab workspace next
+  bindsym Mod1+Shift+Tab workspace prev
+  bindsym $mod+Tab workspace back_and_forth
+
+  bindsym Mod1+Ctrl+Right workspace next
+  bindsym Mod1+Ctrl+Left workspace prev
+  for_window [urgent=latest] focus
+
+##############################################################################################################################################################                                                                                                                                                 
+
+  default_orientation horizontal
+  bindsym $mod+h split h
+  bindsym $mod+v split v
+  bindsym $mod+f fullscreen toggle
+  bindsym $mod+s layout stacking
+  bindsym $mod+z layout tabbed
+  bindsym $mod+e layout toggle split
+  bindsym $mod+space focus mode_toggle
+  bindsym $mod+a focus parent
+
+##############################################################################################################################################################                                                                                                                                                              
+
+  bindsym $mod+r mode "resize"
+
+  mode "resize"           {
+  bindsym $left       resize shrink width 10 px or 10 ppt
+  bindsym $down       resize grow height 10 px or 10 ppt
+  bindsym $up         resize shrink height 10 px or 10 ppt
+  bindsym $right      resize grow width 10 px or 10 ppt
+
+  bindsym Left        resize shrink width 10 px or 10 ppt
+  bindsym Down        resize grow height 10 px or 10 ppt
+  bindsym Up          resize shrink height 10 px or 10 ppt
+  bindsym Right       resize grow width 10 px or 10 ppt
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+                          }
+
+##############################################################################################################################################################                                                                                                                                                                     
+
+  font pango:Noto Mono Regular 12
+
+##############################################################################################################################################################                                                                                                                                                                 
+  
+  exec --no-startup-id picom -b --config ~/.config/picom/picom.conf &
+  exec --no-startup-id numlockx & 
+  exec --no-startup-id wal -i ~/Wallpapers/01.png & 
+  exec --no-startup-id hsetroot -fill ~/Wallpapers/01.png &
+  exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & 
+
+##############################################################################################################################################################                                                                                                                                                  
+
+  bindsym $mod+F1 exec xfce4-terminal
+  bindsym $mod+F2 exec firefox
+  bindsym $mod+F3 exec thunar
+  bindsym $mod+F4 exec pluma
+
+##############################################################################################################################################################                                                                                                                                                                 
+
+  bindsym Print exec --no-startup-id xfce4-screenshooter
+
+##############################################################################################################################################################                                                                                                                                                           
+
+  for_window [class="xfce4-terminal"] focus
+  for_window [class="xterm"] focus
+
+##############################################################################################################################################################                                                                                                                                                                      
+
+  set $volumepath ~/.config/i3-volume
+  set $statussig SIGUSR1
+  set $volumestep 5
+
+  bindsym XF86AudioRaiseVolume exec $volumepath/volume -np -i $volumestep -t $statuscmd -u $statussig
+  bindsym XF86AudioLowerVolume exec $volumepath/volume -np -d $volumestep -t $statuscmd -u $statussig
+  bindsym XF86AudioMute        exec $volumepath/volume -mn -t $statuscmd -u $statussig
+
+##############################################################################################################################################################                                                                                                                                                               
+
+  bindsym $mod+b bar mode toggle
+
+##############################################################################################################################################################                                                                                                                                                           
+
+  hide_edge_borders both
+  bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
+
+##############################################################################################################################################################                                                                                                                                                                     
+
+  for_window [class="^.*"] border pixel 3
+  gaps inner 9
+  gaps outer 9
+  #smart_gaps on
+  #smart_borders on
+
+##############################################################################################################################################################                                                                                                                                                                    
+
+  set $mode_gaps Gaps: (o) outer, (i) inner
+  set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+  set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+  bindsym $mod+Shift+g mode "$mode_gaps"
+
+  mode "$mode_gaps"       {
+  bindsym o      mode "$mode_gaps_outer"
+  bindsym i      mode "$mode_gaps_inner"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+                          }
+
+  mode "$mode_gaps_inner" {
+  bindsym plus  gaps inner current plus 5
+  bindsym minus gaps inner current minus 5
+  bindsym 0     gaps inner current set 0
+
+  bindsym Shift+plus  gaps inner all plus 5
+  bindsym Shift+minus gaps inner all minus 5
+  bindsym Shift+0     gaps inner all set 0
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+                          }
+
+  mode "$mode_gaps_outer" {
+  bindsym plus  gaps outer current plus 5
+  bindsym minus gaps outer current minus 5
+  bindsym 0     gaps outer current set 0
+
+  bindsym Shift+plus  gaps outer all plus 5
+  bindsym Shift+minus gaps outer all minus 5
+  bindsym Shift+0     gaps outer all set 0
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+                          }
+
+##############################################################################################################################################################                                                                                                                                                           
+
+  bar                     {
+
+  height 20
+  workspace_buttons yes
+  font pango:Noto Mono Regular 12
+
+  position top
+
+  #system icons
+  tray_output none
+
+  #i3status
+
+  status_command i3status -c ~/.config/i3/i3status.conf
+
+
+  colors                  {
+  background #1a1a1a
+  statusline #64549c
+  separator  #64549c
+  #                      border  backgr. text
+  focused_workspace      #64549c #1a1a1a #FFFFFF
+  active_workspace       #FFFFFF #1a1a1a #FFFFFF
+  inactive_workspace     #64549c #1a1a1a #64549c
+  urgent_workspace       #64549c #d42121 #FFFFFF
+                          }
+
+                          }
+
+  #class                  border  backgr. text    indicator
+  client.placeholder      #64549c #64549c #64549c
+  client.background       #64549c #64549c #64549c
+  client.focused          #64549c #64549c #e5e5e5 #64549c
+  client.unfocused        #222222 #222222 #aaaaaa #222222
+  client.focused_inactive #222222 #222222 #a9a9a9 #222222
+  client.urgent           #d42121 #d42121 #f7f7f7 #d42121
+
+##############################################################################################################################################################                                                                                                                                                                          
+
